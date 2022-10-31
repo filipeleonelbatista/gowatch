@@ -1,5 +1,6 @@
+import { Feather } from '@expo/vector-icons';
 import * as React from 'react';
-import { ActivityIndicator, Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Page from '../components/Page';
 import { IMAGE_URL } from '../context/MovieContext';
 import { useMovie } from '../hooks/useMovie';
@@ -21,6 +22,21 @@ export default function Details({ navigation }) {
 
   return (
     <Page>
+      <TouchableOpacity style={{
+        backgroundColor: "#0000004d",
+        width: 32,
+        height: 32,
+        borderRadius: 16,
+        justifyContent: 'center',
+        alignItems: "center",
+        position: "absolute",
+        top: 20,
+        left: 20,
+        zIndex: 100,
+      }}
+        onPress={() => navigation.navigate("Home")}>
+        <Feather name="chevron-left" size={24} color="#FFF" />
+      </TouchableOpacity>
       <Image source={{ uri: IMAGE_URL + selectedMovie.backdrop }} style={styles.detailImage} />
       <View style={{ marginHorizontal: 20, marginBottom: 20 }}>
         <Text style={styles.title}>{selectedMovie.title}</Text>

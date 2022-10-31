@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "start:emulator:light": "emulator -avd Nexus_One_API_26",
+    "start:emulator:lite": "emulator -avd Nexus_One_API_26",
     "start:emulator": "emulator -avd Pixel_4_API_30",
     "build": "eas build --platform android --profile preview"
   },

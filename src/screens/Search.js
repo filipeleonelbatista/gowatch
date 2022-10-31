@@ -5,7 +5,7 @@ import Page from '../components/Page';
 import { IMAGE_URL } from '../context/MovieContext';
 import { useMovie } from '../hooks/useMovie';
 
-export default function Search() {
+export default function Search({ navigation }) {
   const {
     isLoaded,
     searchList,
@@ -60,7 +60,10 @@ export default function Search() {
           <ScrollView style={{ width: Dimensions.get('screen').width, paddingHorizontal: 20 }}>
             {
               searchList.map(movie => (
-                <TouchableOpacity key={movie.id} onPress={() => setSelectedMovie(movie)} style={{ flex: 1, flexDirection: "row" }}>
+                <TouchableOpacity key={movie.id} onPress={() => {
+                  setSelectedMovie(movie)
+                  navigation.navigate("Details")
+                }} style={{ flex: 1, flexDirection: "row" }}>
                   <Image source={{ uri: IMAGE_URL + movie.backdrop }} style={styles.scrollImage} />
                   <View style={{ flex: 1, marginLeft: 8 }}>
                     <View>

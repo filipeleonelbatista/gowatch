@@ -48,7 +48,10 @@ export default function Home({ navigation }) {
         contentContainerStyle={styles.carrocelContainer}
         renderItem={
           ({ item, index }) => (
-            <TouchableOpacity onPress={() => setSelectedMovie(item)} style={{ position: 'relative' }}>
+            <TouchableOpacity onPress={() => {
+              setSelectedMovie(item)
+              navigation.navigate("Details")
+            }} style={{ position: 'relative' }}>
               <View style={{ position: 'absolute', zIndex: 100, bottom: 8, left: 24 }}>
                 <Text style={{ ...styles.title, color: "#CCC" }}>{item.title}</Text>
               </View>
@@ -77,7 +80,10 @@ export default function Home({ navigation }) {
         <ScrollView horizontal style={{ marginVertical: 16 }}>
           {
             selectedCategoryMovieList.map(movie => (
-              <TouchableOpacity key={movie.id} onPress={() => setSelectedMovie(movie)}>
+              <TouchableOpacity key={movie.id} onPress={() => {
+                setSelectedMovie(movie)
+                navigation.navigate("Details")
+              }}>
                 <Image source={{ uri: IMAGE_URL + movie.image }} style={styles.scrollImage} />
               </TouchableOpacity>
             ))
@@ -90,7 +96,10 @@ export default function Home({ navigation }) {
         <ScrollView horizontal style={{ marginVertical: 16 }}>
           {
             popularList.map(movie => (
-              <TouchableOpacity key={movie.id} onPress={() => setSelectedMovie(movie)}>
+              <TouchableOpacity key={movie.id} onPress={() => {
+                setSelectedMovie(movie)
+                navigation.navigate("Details")
+              }}>
                 <Image source={{ uri: IMAGE_URL + movie.image }} style={styles.scrollImage} />
               </TouchableOpacity>
             ))

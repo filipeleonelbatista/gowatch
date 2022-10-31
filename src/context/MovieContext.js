@@ -35,7 +35,7 @@ export function MovieContextProvider(props) {
           genre_ids: movie.genre_ids
         });
       }
-      setSearchList(resultArray);
+      setSearchList(resultArray.slice(0, 9));
     }
   }
 
@@ -57,7 +57,7 @@ export function MovieContextProvider(props) {
           genre_ids: movie.genre_ids
         });
       }
-      setSelectedCategoryMovieList(resultArray);
+      setSelectedCategoryMovieList(resultArray.slice(0, 9));
       setSelectedMovie(resultArray[0])
     }
 
@@ -80,7 +80,7 @@ export function MovieContextProvider(props) {
             genre_ids: movie.genre_ids
           });
         }
-        setPopularList(resultArray);
+        setPopularList(resultArray.slice(0, 9));
       }
 
       const resCarrocel = await api.get(`/movie/now_playing${url}`)
@@ -98,7 +98,7 @@ export function MovieContextProvider(props) {
             genre_ids: movie.genre_ids
           });
         }
-        setCarrocelList(resultArray);
+        setCarrocelList(resultArray.slice(0, 5));
       }
 
       const resCategories = await api.get(`/genre/list${url}`)
@@ -120,7 +120,7 @@ export function MovieContextProvider(props) {
             genre_ids: movie.genre_ids
           });
         }
-        setSelectedCategoryMovieList(resultArray);
+        setSelectedCategoryMovieList(resultArray.slice(0, 9));
         setSelectedMovie(resultArray[0])
       }
 
